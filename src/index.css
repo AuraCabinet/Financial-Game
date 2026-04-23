@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Bebas+Neue&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", cursive;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-nexus-bg: #05050A;
+  --color-cyber-cyan: #00FFCC;
+  --color-electric-purple: #7000FF;
+  --color-royal-gold: #FFD700;
+  --color-blood-red: #FF4D4D;
+}
+
+@layer base {
+  body {
+    @apply bg-nexus-bg text-white overflow-hidden font-sans antialiased;
+  }
+
+  .glass-card {
+    @apply bg-white/5 border border-white/10 backdrop-blur-xl rounded-[2rem] shadow-2xl;
+  }
+
+  .neon-button {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-extrabold uppercase tracking-widest transition-all duration-300;
+  }
+
+  .neon-cyan {
+    @apply bg-gradient-to-r from-electric-purple to-cyber-cyan text-nexus-bg hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,204,0.4)];
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+
+  /* Shaking effect for errors */
+  .shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(4px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+    40%, 60% { transform: translate3d(8px, 0, 0); }
+  }
+
+  .animate-spin-slow {
+    animation: spin 60s linear infinite;
+  }
+
+  .animate-reverse-spin {
+    animation: reverse-spin 45s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes reverse-spin {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+}
